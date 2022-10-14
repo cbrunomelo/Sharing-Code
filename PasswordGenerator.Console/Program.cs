@@ -6,12 +6,12 @@ short size = Convert.ToInt16(Console.ReadLine());
 
 Console.WriteLine("include Special Chars? y/n");
 
-var option1 = YesOrNo(Console.ReadKey().KeyChar);
+var option1 = YesOrNo();
 
 Console.WriteLine();
 Console.WriteLine("Upper Case? y/n");
 
-var option2 = YesOrNo(Console.ReadKey().KeyChar);
+var option2 = YesOrNo();
 
 
 Console.WriteLine();
@@ -20,5 +20,5 @@ Console.WriteLine($"Your Password: {password}");
 
 
 
-static bool YesOrNo(char answer)
-   => char.ToLower(answer) == 'y' ? true :false;
+static bool YesOrNo()
+   => char.ToLower(Console.ReadKey().KeyChar) == 'y' ? true :false;
