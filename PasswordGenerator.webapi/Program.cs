@@ -13,10 +13,14 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.MapGet("", () =>
+{
+    return Results.Redirect("/swagger/index.html");
+});
 
 app.MapGet("v1/passwords", (short? len, bool? specialChars, bool? uppercase)
     => Results.Ok(new PasswordResponse(Password.Generate(len ?? 16, specialChars ?? true, uppercase ?? false))))
-    .Produces<PasswordResponse>();
+    .Produces<string>();
 
 
 // Configure the HTTP request pipeline.
